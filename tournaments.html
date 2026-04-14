@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tournaments — KRAFTON ESPORTS BGMI 2026</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.tour-hero{background:var(--c900);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}
+.tour-hero::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(251,191,36,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(251,191,36,.03) 1px,transparent 1px);background-size:60px 60px}
+.tour-hero::after{content:'';position:absolute;right:-100px;top:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(251,191,36,.06),transparent 70%);pointer-events:none}
+
+/* Detail card - full width expanded card */
+.t-detail-card{background:var(--c800);border:1px solid #272727;border-radius:16px;overflow:hidden;margin-bottom:1.5rem;transition:border-color .3s}
+.t-detail-card:hover{border-color:rgba(251,191,36,.3)}
+.tdc-top{display:grid;grid-template-columns:320px 1fr;min-height:220px}
+.tdc-img{position:relative;overflow:hidden}
+.tdc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.t-detail-card:hover .tdc-img img{transform:scale(1.04)}
+.tdc-body{padding:1.8rem 2rem}
+.tdc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.tdc-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border-radius:4px;margin-bottom:.5rem}
+.tdc-title{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;text-transform:uppercase;color:white;line-height:1;margin-bottom:.4rem}
+.tdc-sub{color:var(--c100);font-size:.88rem;line-height:1.6;max-width:500px}
+.tdc-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px solid #272727}
+.meta-item{}
+.meta-lbl{font-size:.72rem;color:var(--c400);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.meta-val{font-size:.9rem;color:white;font-weight:600;margin-top:.2rem}
+.tdc-actions{display:flex;gap:.75rem;margin-top:1.2rem;flex-wrap:wrap}
+
+@media(max-width:768px){.tdc-top{grid-template-columns:1fr}.tdc-img{height:200px}}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+
+<!-- HERO -->
+<div class="tour-hero">
+  <div class="si" style="position:relative;z-index:1">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Tournaments</span>
+    </div>
+    <div class="page-ttl">Tournaments</div>
+    <div class="page-sub">All active and upcoming BGMI esports tournaments in India. Register your squad and compete for glory.</div>
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<section style="background:var(--c800);padding:1.5rem 0">
+  <div class="si">
+    <div class="filter-bar">
+      <button class="f-tab active" onclick="filterCards('all',this)">All</button>
+      <button class="f-tab" onclick="filterCards('open',this)">Open Registration</button>
+      <button class="f-tab" onclick="filterCards('live',this)">Live Now</button>
+      <button class="f-tab" onclick="filterCards('invite',this)">Invite Only</button>
+      <button class="f-tab" onclick="filterCards('upcoming',this)">Upcoming</button>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVE TOURNAMENTS – Detail Cards -->
+<section style="background:var(--c800)">
+  <div class="si">
+    <div class="sec-hdr"><div><div class="sec-lbl">Currently Active</div><div class="sec-ttl">Active Tournaments</div></div></div>
+
+    <!-- BGIS 2026 -->
+    <div class="t-detail-card rev" data-cat="open">
+      <div class="tdc-top">
+        <div class="tdc-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2026/banner_mobile.png" alt="BGIS 2026" onerror="this.parentElement.style.background='linear-gradient(135deg,#08060e,#160d00)';this.style.display='none'">
+          <div class="tc-badge badge-open" style="position:absolute;top:.75rem;right:.75rem">Open</div>
+          <div class="tc-prize" style="position:absolute;bottom:.75rem;right:.75rem">₹2 Crore+</div>
+        </div>
+        <div class="tdc-body">
+          <div>
+            <div class="tdc-tag badge-open">⚡ Open Registration</div>
+            <div class="tdc-title">BGIS 2026</div>
+            <div style="font-size:.85rem;color:var(--gold);font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">BATTLEGROUNDS INDIA SERIES 2026</div>
+            <div class="tdc-sub">India's biggest open-for-all BGMI tournament. The country's boldest competitors collide, driven by a relentless pursuit of greatness. Open to ALL players — no invite needed. #BreakBoundaries</div>
+          </div>
+          <div class="tdc-meta">
+            <div class="meta-item"><div class="meta-lbl">Format</div><div class="meta-val">Open + Invite</div></div>
+            <div class="meta-item"><div class="meta-lbl">Reg. Deadline</div><div class="meta-val">10 Apr 2026</div></div>
+            <div class="meta-item"><div class="meta-lbl">Prize Pool</div><div class="meta-val" style="color:var(--gold)">₹2,00,00,000</div></div>
+            <div class="meta-item"><div class="meta-lbl">Stages</div><div class="meta-val">Qualifier → Finals</div></div>
+          </div>
+          <div class="tdc-actions">
+            <a href="registration.html" class="btn-pri">⚡ Register Squad</a>
+            <a href="#" class="btn-sec">Tournament Details</a>
+            <a href="#" class="btn-sec">Rule Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IRS 2026 -->
+    <div class="t-detail-card rev" data-cat="live">
+      <div class="tdc-top">
+        <div class="tdc-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/FirstpartyTournament_2026/Banner_mobile.png" alt="IRS 2026" onerror="this.parentElement.style.background='linear-gradient(135deg,#001a0a,#0a1600)';this.style.display='none'">
+          <div class="tc-badge badge-live" style="position:absolute;top:.75rem;right:.75rem">Live</div>
+          <div class="tc-prize" style="position:absolute;bottom:.75rem;right:.75rem">₹50L+</div>
+        </div>
+        <div class="tdc-body">
+          <div>
+            <div class="tdc-tag badge-live">🔴 Live Now</div>
+            <div class="tdc-title" style="color:#4ade80">India Rising Series 2026</div>
+            <div style="font-size:.85rem;color:#4ade80;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">UPTHRUST ESPORTS · IRS 2026</div>
+            <div class="tdc-sub">IRS 2026 brings passionate competitors from across the nation. Every match is a story of determination and clutch moments. #ReinventingTheWheel</div>
+          </div>
+          <div class="tdc-meta">
+            <div class="meta-item"><div class="meta-lbl">Format</div><div class="meta-val">Open</div></div>
+            <div class="meta-item"><div class="meta-lbl">Dates</div><div class="meta-val">15 Mar – 20 Apr 2026</div></div>
+            <div class="meta-item"><div class="meta-lbl">Prize Pool</div><div class="meta-val" style="color:#4ade80">₹50,00,000+</div></div>
+            <div class="meta-item"><div class="meta-lbl">Status</div><div class="meta-val">Registration Closed</div></div>
+          </div>
+          <div class="tdc-actions">
+            <button class="btn-pri" style="background:#4ade80;border-color:#16a34a;opacity:.6;cursor:not-allowed" disabled>Registration Closed</button>
+            <a href="#" class="btn-sec">Match Schedule</a>
+            <a href="#" class="btn-sec">Standings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rising Star -->
+    <div class="t-detail-card rev" data-cat="open">
+      <div class="tdc-top">
+        <div class="tdc-img" style="background:linear-gradient(135deg,#180010,#08001a);display:flex;align-items:center;justify-content:center">
+          <img src="https://esports.battlegroundsmobileindia.com/images/rising_star_logo.png" alt="Rising Star" style="max-height:120px;object-fit:contain" onerror="this.style.display='none'">
+          <div class="tc-badge badge-prog" style="position:absolute;top:.75rem;right:.75rem">Active</div>
+        </div>
+        <div class="tdc-body">
+          <div>
+            <div class="tdc-tag badge-prog">🌟 Program Active</div>
+            <div class="tdc-title" style="color:#f472b6">Rising Star Program 2026</div>
+            <div style="font-size:.85rem;color:#f472b6;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">KRAFTON INDIA ESPORTS · CREATOR PROGRAM</div>
+            <div class="tdc-sub">Krafton India Esports presents Rising Star — designed to elevate emerging esports athletes and content creators, helping them reach new heights in their careers.</div>
+          </div>
+          <div class="tdc-meta">
+            <div class="meta-item"><div class="meta-lbl">Type</div><div class="meta-val">Creator/Athlete</div></div>
+            <div class="meta-item"><div class="meta-lbl">Applications Close</div><div class="meta-val">30 Apr 2026</div></div>
+            <div class="meta-item"><div class="meta-lbl">Prize Pool</div><div class="meta-val" style="color:#f472b6">Rewards + Mentorship</div></div>
+          </div>
+          <div class="tdc-actions">
+            <a href="registration.html" class="btn-pri" style="background:#f472b6;border-color:#ec4899">Apply Now</a>
+            <a href="#" class="btn-sec">Program Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BMPS 2026 (Upcoming) -->
+    <div class="t-detail-card rev" data-cat="upcoming" style="opacity:.7">
+      <div class="tdc-top">
+        <div class="tdc-img" style="background:linear-gradient(135deg,#001516,#000a14);display:flex;align-items:center;justify-content:center">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:#38bdf8;letter-spacing:.05em;text-align:center">BMPS<br><span style="font-size:2rem;opacity:.6">2026</span></span>
+          <div class="tc-badge badge-soon" style="position:absolute;top:.75rem;right:.75rem">Coming Soon</div>
+        </div>
+        <div class="tdc-body">
+          <div>
+            <div class="tdc-tag badge-soon">📅 Upcoming</div>
+            <div class="tdc-title" style="color:#38bdf8">BGMI Pro Series 2026</div>
+            <div style="font-size:.85rem;color:#38bdf8;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">INVITE ONLY · PRO LEAGUE</div>
+            <div class="tdc-sub">The premier invitational series for India's top professional teams. BMPS 2026 features elite squads competing across multiple stages for the ultimate championship title.</div>
+          </div>
+          <div class="tdc-meta">
+            <div class="meta-item"><div class="meta-lbl">Format</div><div class="meta-val">Invite Only</div></div>
+            <div class="meta-item"><div class="meta-lbl">Expected Start</div><div class="meta-val">July 2026</div></div>
+            <div class="meta-item"><div class="meta-lbl">Prize Pool</div><div class="meta-val" style="color:#38bdf8">TBA</div></div>
+          </div>
+          <div class="tdc-actions">
+            <button class="btn-pri" style="background:#38bdf8;border-color:#0ea5e9;color:#111" onclick="alert('We will notify you when BMPS 2026 is announced!')">🔔 Notify Me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAST TOURNAMENT PREVIEW -->
+<section style="background:var(--c700)">
+  <div class="si">
+    <div class="sec-hdr rev">
+      <div><div class="sec-lbl">History</div><div class="sec-ttl">Past Tournaments</div></div>
+      <a href="past.html" class="view-all">View All Past Events →</a>
+    </div>
+    <div class="past-scroll rev" id="pastScroll">
+      <a href="past.html" class="pc"><div class="pc-img"><img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMIC_2025/thumbnailimage.png" alt="BMIC 2025"></div><div class="pc-body"><div class="pc-name">BMIC 2025</div><div class="pc-type">Invite Only</div><div class="pc-dl">Dates</div><div class="pc-dv">31 Oct – 2 Nov 2025</div></div></a>
+      <a href="past.html" class="pc"><div class="pc-img"><img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMDS_2025/thumbnailimage.png" alt="BMSD 2025"></div><div class="pc-body"><div class="pc-name">BMSD 2025</div><div class="pc-type" style="color:#fb923c">Invite Only</div><div class="pc-dl">Dates</div><div class="pc-dv">18 Sep – 12 Oct 2025</div></div></a>
+      <a href="past.html" class="pc"><div class="pc-img"><img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMPS_2025/Thumbnail.png" alt="BMPS 2025"></div><div class="pc-body"><div class="pc-name">BMPS 2025</div><div class="pc-type" style="color:#38bdf8">Invite Only</div><div class="pc-dl">Dates</div><div class="pc-dv">22 May – 6 Jul 2025</div></div></a>
+      <a href="past.html" class="pc"><div class="pc-img"><img src="https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2025/thumbnail-image.png" alt="BGIS 2025"></div><div class="pc-body"><div class="pc-name">BGIS 2025</div><div class="pc-type">Open + Invite</div><div class="pc-dl">Dates</div><div class="pc-dv">3 Jan – 27 Apr 2025</div></div></a>
+      <a href="past.html" class="pc"><div class="pc-img"><img src="https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2024/thumbnail.png" alt="BGIS 2024"></div><div class="pc-body"><div class="pc-name">BGIS 2024</div><div class="pc-type">Open + Invite</div><div class="pc-dl">Dates</div><div class="pc-dv">4 Apr – 30 Jun 2024</div></div></a>
+    </div>
+  </div>
+</section>
+
+<script>
+injectShared('tournaments');
+
+// Filter
+function filterCards(cat, btn) {
+  document.querySelectorAll('.f-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.t-detail-card').forEach(c => {
+    if (cat === 'all' || c.dataset.cat === cat) { c.style.display = ''; }
+    else { c.style.display = 'none'; }
+  });
+}
+
+// Reveal
+const ro = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } }); }, { threshold: .08 });
+document.querySelectorAll('.rev').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

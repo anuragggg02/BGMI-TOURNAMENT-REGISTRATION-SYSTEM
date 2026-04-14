@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rankings — KRAFTON ESPORTS BGMI 2026</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.rank-hero{background:var(--c900);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}
+.rank-hero::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(251,191,36,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(251,191,36,.03) 1px,transparent 1px);background-size:60px 60px}
+
+.rank-layout{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start}
+.rank-main{background:var(--c800);border:1px solid #272727;border-radius:14px;overflow:hidden}
+.rank-main-header{padding:1.2rem 1.5rem;border-bottom:1px solid #232323;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.rank-main-ttl{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;text-transform:uppercase;color:white}
+
+.rank-table{width:100%;border-collapse:collapse}
+.rank-table th{font-family:'Rajdhani',sans-serif;font-size:.75rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:.85rem 1.2rem;
+  text-align:left;border-bottom:1px solid rgba(251,191,36,.15);background:rgba(251,191,36,.04)}
+.rank-table td{padding:.9rem 1.2rem;border-bottom:1px solid #1a1a1a;font-size:.88rem;color:var(--c100);vertical-align:middle}
+.rank-table tr:hover td{background:rgba(255,255,255,.02);color:white}
+.rank-table tr:last-child td{border-bottom:none}
+.r-num{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;color:var(--c400);width:40px}
+.r1 .r-num{color:#FFD700}.r2 .r-num{color:#C0C0C0}.r3 .r-num{color:#CD7F32}
+.r1 td{background:rgba(255,215,0,.03)}.r2 td{background:rgba(192,192,192,.02)}.r3 td{background:rgba(205,127,50,.02)}
+.team-row{display:flex;align-items:center;gap:.75rem}
+.team-av{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;background:var(--c700)}
+.t-name{font-weight:600;color:white;font-size:.92rem}
+.t-tag{font-size:.73rem;color:var(--c400);margin-top:.1rem}
+.pts-val{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;color:white}
+.chg{font-size:.72rem;font-weight:700}
+.chg.up{color:#4ade80}.chg.dn{color:#f87171}.chg.eq{color:var(--c400)}
+
+/* SIDEBAR */
+.rank-sidebar{display:flex;flex-direction:column;gap:1.2rem}
+.sidebar-card{background:var(--c800);border:1px solid #272727;border-radius:12px;overflow:hidden}
+.sc-head{padding:.9rem 1.1rem;border-bottom:1px solid #232323;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;text-transform:uppercase;color:var(--gold)}
+.sc-body{padding:.8rem 1rem}
+.mvp-item{display:flex;align-items:center;gap:.8rem;padding:.6rem .5rem;border-radius:8px;transition:background .2s;cursor:pointer}
+.mvp-item:hover{background:rgba(255,255,255,.04)}
+.mvp-rank{width:24px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;color:var(--c400);text-align:center;flex-shrink:0}
+.mvp-av{width:36px;height:36px;border-radius:50%;background:var(--c600);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:2px solid #333}
+.mvp-name{font-size:.85rem;font-weight:600;color:white}
+.mvp-team{font-size:.72rem;color:var(--c400)}
+.mvp-stat{margin-left:auto;text-align:right;flex-shrink:0}
+.mvp-val{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;color:var(--gold)}
+.mvp-lbl{font-size:.65rem;color:var(--c400);text-transform:uppercase;letter-spacing:.08em}
+
+@media(max-width:900px){.rank-layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+
+<!-- HERO -->
+<div class="rank-hero">
+  <div class="si" style="position:relative;z-index:1">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Rankings</span>
+    </div>
+    <div class="page-ttl">Rankings</div>
+    <div class="page-sub">Official BGMI esports team and player standings for the 2026 season. Updated after each tournament.</div>
+  </div>
+</div>
+
+<!-- FILTER -->
+<section style="background:var(--c800);padding:1.5rem 0">
+  <div class="si">
+    <div class="filter-bar">
+      <button class="f-tab active" onclick="setTab('teams',this)">Team Rankings</button>
+      <button class="f-tab" onclick="setTab('players',this)">Player Rankings</button>
+      <button class="f-tab" onclick="setTab('kills',this)">Kill Leaders</button>
+    </div>
+  </div>
+</section>
+
+<!-- RANKINGS -->
+<section style="background:var(--c700)">
+  <div class="si">
+    <div class="rank-layout">
+
+      <!-- MAIN TABLE -->
+      <div class="rank-main rev">
+        <div class="rank-main-header">
+          <div class="rank-main-ttl" id="tableTitle">🏆 BGIS 2026 — Team Rankings</div>
+          <select class="fs" style="width:auto;padding:.38rem .7rem;font-size:.82rem" onchange="changeTournament(this)">
+            <option>BGIS 2026 (Live)</option>
+            <option>BGIS 2025</option>
+            <option>BMPS 2025</option>
+          </select>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="rank-table" id="rankTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Team</th>
+                <th>Matches</th>
+                <th>Chicken Dinners</th>
+                <th>Total Kills</th>
+                <th>Placement Pts</th>
+                <th>Total Pts</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody id="rankBody">
+              <!-- JS injected -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="rank-sidebar rev d1">
+
+        <!-- Top Fraggers -->
+        <div class="sidebar-card">
+          <div class="sc-head">🎯 Top Fraggers</div>
+          <div class="sc-body">
+            <div class="mvp-item"><div class="mvp-rank r1" style="color:#FFD700">1</div><div class="mvp-av">🎮</div><div><div class="mvp-name">SnipeZone</div><div class="mvp-team">GodLike Esports</div></div><div class="mvp-stat"><div class="mvp-val" style="color:#4ade80">312</div><div class="mvp-lbl">Kills</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">2</div><div class="mvp-av">🔫</div><div><div class="mvp-name">Clutchfire</div><div class="mvp-team">Team Xspark</div></div><div class="mvp-stat"><div class="mvp-val" style="color:#4ade80">289</div><div class="mvp-lbl">Kills</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">3</div><div class="mvp-av">⚡</div><div><div class="mvp-name">ULTRON</div><div class="mvp-team">Orangutan</div></div><div class="mvp-stat"><div class="mvp-val" style="color:#4ade80">271</div><div class="mvp-lbl">Kills</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">4</div><div class="mvp-av">🎯</div><div><div class="mvp-name">R4ge</div><div class="mvp-team">Global Esports</div></div><div class="mvp-stat"><div class="mvp-val" style="color:#4ade80">258</div><div class="mvp-lbl">Kills</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">5</div><div class="mvp-av">💥</div><div><div class="mvp-name">Phantom</div><div class="mvp-team">Blind Esports</div></div><div class="mvp-stat"><div class="mvp-val" style="color:#4ade80">244</div><div class="mvp-lbl">Kills</div></div></div>
+          </div>
+        </div>
+
+        <!-- Most Chicken Dinners -->
+        <div class="sidebar-card">
+          <div class="sc-head">🍗 Chicken Dinner Leaders</div>
+          <div class="sc-body">
+            <div class="mvp-item"><div class="mvp-rank" style="color:#FFD700">1</div><div class="mvp-av">👑</div><div><div class="mvp-name">GodLike Esports</div><div class="mvp-team">North India</div></div><div class="mvp-stat"><div class="mvp-val" style="color:var(--gold)">11</div><div class="mvp-lbl">Wins</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">2</div><div class="mvp-av">⚡</div><div><div class="mvp-name">Team Xspark</div><div class="mvp-team">West India</div></div><div class="mvp-stat"><div class="mvp-val" style="color:var(--gold)">9</div><div class="mvp-lbl">Wins</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">3</div><div class="mvp-av">🐊</div><div><div class="mvp-name">Team Orangutan</div><div class="mvp-team">South India</div></div><div class="mvp-stat"><div class="mvp-val" style="color:var(--gold)">8</div><div class="mvp-lbl">Wins</div></div></div>
+            <div class="mvp-item"><div class="mvp-rank">4</div><div class="mvp-av">🌐</div><div><div class="mvp-name">Global Esports</div><div class="mvp-team">South India</div></div><div class="mvp-stat"><div class="mvp-val" style="color:var(--gold)">7</div><div class="mvp-lbl">Wins</div></div></div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="sidebar-card">
+          <div class="sc-head">🔗 Quick Actions</div>
+          <div class="sc-body" style="display:flex;flex-direction:column;gap:.6rem">
+            <a href="registration.html" class="btn-pri" style="justify-content:center;text-align:center">⚡ Register for BGIS 2026</a>
+            <a href="tournaments.html" class="btn-sec" style="text-align:center;display:block;padding:.6rem">View Active Tournaments →</a>
+            <a href="past.html" class="btn-sec" style="text-align:center;display:block;padding:.6rem">View Past Results →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+injectShared('rankings');
+
+const teamsData = [
+  { rank:1, emoji:'👑', name:'GodLike Esports', tag:'GL', region:'North India', matches:18, dinners:11, kills:847, place:320, total:1167, chg:'▲2' },
+  { rank:2, emoji:'⚡', name:'Team Xspark',     tag:'XSP', region:'West India',  matches:18, dinners:9,  kills:791, place:298, total:1089, chg:'▼1' },
+  { rank:3, emoji:'🐊', name:'Team Orangutan',  tag:'OTG', region:'South India', matches:18, dinners:8,  kills:763, place:287, total:1050, chg:'▲1' },
+  { rank:4, emoji:'🌐', name:'Global Esports',  tag:'GE',  region:'South India', matches:18, dinners:7,  kills:728, place:275, total:1003, chg:'—'  },
+  { rank:5, emoji:'😶', name:'Blind Esports',   tag:'BLD', region:'East India',  matches:18, dinners:6,  kills:699, place:261, total: 960, chg:'▼1' },
+  { rank:6, emoji:'🔥', name:'SynerGE',         tag:'SYN', region:'North India', matches:18, dinners:5,  kills:672, place:245, total: 917, chg:'▲3' },
+  { rank:7, emoji:'🦅', name:'Reckoning Esports',tag:'RCK',region:'Central India',matches:18,dinners:4,  kills:641, place:231, total: 872, chg:'▼2' },
+  { rank:8, emoji:'🎯', name:'8Bit Esports',    tag:'8BT', region:'West India',  matches:18, dinners:4,  kills:618, place:219, total: 837, chg:'▲1' },
+  { rank:9, emoji:'🌊', name:'Enigma Gaming',   tag:'ENM', region:'West India',  matches:18, dinners:3,  kills:594, place:208, total: 802, chg:'▼1' },
+  { rank:10,emoji:'💎', name:'Team IND',        tag:'IND', region:'North India', matches:18, dinners:3,  kills:571, place:196, total: 767, chg:'—'  },
+  { rank:11,emoji:'🏹', name:'Revenge Esports', tag:'RVG', region:'East India',  matches:18, dinners:2,  kills:548, place:184, total: 732, chg:'▲2' },
+  { rank:12,emoji:'🔵', name:'Team iG',         tag:'iG',  region:'Northeast',   matches:18, dinners:2,  kills:523, place:172, total: 695, chg:'▼1' },
+];
+
+function renderTable(data) {
+  const tbody = document.getElementById('rankBody');
+  tbody.innerHTML = data.map(t => {
+    const chgClass = t.chg.includes('▲') ? 'up' : t.chg.includes('▼') ? 'dn' : 'eq';
+    const rowClass = t.rank === 1 ? 'r1' : t.rank === 2 ? 'r2' : t.rank === 3 ? 'r3' : '';
+    return `<tr class="${rowClass}">
+      <td class="r-num">${t.rank}</td>
+      <td><div class="team-row"><div class="team-av">${t.emoji}</div><div><div class="t-name">${t.name}</div><div class="t-tag">${t.tag} · ${t.region}</div></div></div></td>
+      <td>${t.matches}</td>
+      <td style="color:var(--gold);font-weight:700">${t.dinners}</td>
+      <td style="color:#4ade80;font-weight:700">${t.kills}</td>
+      <td>${t.place}</td>
+      <td><span class="pts-val">${t.total}</span></td>
+      <td><span class="chg ${chgClass}">${t.chg}</span></td>
+    </tr>`;
+  }).join('');
+}
+renderTable(teamsData);
+
+function setTab(tab, btn) {
+  document.querySelectorAll('.f-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tableTitle').textContent = tab === 'teams' ? '🏆 BGIS 2026 — Team Rankings' : tab === 'players' ? '⭐ BGIS 2026 — Player Rankings' : '🎯 BGIS 2026 — Kill Leaders';
+}
+
+function changeTournament(sel) {
+  // Shuffle data slightly for demo
+  const shuffled = [...teamsData].sort(() => Math.random() - 0.5).map((t,i) => ({...t, rank:i+1}));
+  renderTable(shuffled);
+}
+
+const ro = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } }); }, { threshold: .08 });
+document.querySelectorAll('.rev').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

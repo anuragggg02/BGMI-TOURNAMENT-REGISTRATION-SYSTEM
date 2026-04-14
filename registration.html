@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Squad — KRAFTON ESPORTS BGMI 2026</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.reg-hero{background:var(--c900);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}
+.reg-hero::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(251,191,36,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(251,191,36,.03) 1px,transparent 1px);background-size:60px 60px}
+.reg-hero::after{content:'';position:absolute;right:0;top:0;
+  width:50%;height:100%;
+  background:url('https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2026/BGIS_2026_Updatedlogo.svg') center/contain no-repeat;
+  opacity:.04;pointer-events:none}
+
+.reg-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start}
+.form-card{background:var(--c800);border:1px solid #272727;border-radius:16px;padding:2.2rem}
+.form-ttl{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--gold);margin-bottom:.2rem}
+.form-sub{font-size:.83rem;color:var(--c100);margin-bottom:1.8rem}
+
+.prize-box{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);
+  border-radius:10px;padding:1rem 1.2rem;margin-bottom:1.8rem}
+.prize-box-lbl{font-size:.78rem;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem}
+.prize-rows{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.p-lbl{font-size:.81rem;color:var(--c100)}.p-val{font-size:.81rem;color:white;font-weight:600}
+
+.steps{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2rem}
+.step{display:flex;gap:1rem;align-items:flex-start}
+.step-n{width:36px;height:36px;flex-shrink:0;border-radius:50%;background:var(--gold);
+  color:#111;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center}
+.step h4{font-size:.93rem;font-weight:600;color:white;margin-bottom:.2rem}
+.step p{font-size:.83rem;color:var(--c100);line-height:1.5}
+
+.terms-row{display:flex;align-items:flex-start;gap:.65rem;margin:1.1rem 0}
+.terms-row input{margin-top:3px;accent-color:var(--gold);width:15px;height:15px;flex-shrink:0;cursor:pointer}
+.terms-row label{font-size:.8rem;color:var(--c100);line-height:1.5;cursor:pointer}
+.terms-row label a{color:var(--gold);text-decoration:none}
+.btn-reg{width:100%;background:var(--gold);color:#111;border:none;padding:.82rem;
+  border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-reg:hover{background:#fff;box-shadow:0 0 28px rgba(251,191,36,.4)}
+.btn-reg:active{transform:scale(.98)}
+
+.eligibility-box{background:var(--c800);border:1px solid #272727;border-radius:12px;padding:1.2rem 1.5rem;margin-top:1.5rem}
+.elig-ttl{font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.elig-list{display:flex;flex-direction:column;gap:.5rem}
+.elig-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.83rem;color:var(--c100);line-height:1.5}
+.elig-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+@media(max-width:900px){.reg-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+
+<!-- HERO -->
+<div class="reg-hero">
+  <div class="si" style="position:relative;z-index:1">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="tournaments.html">Tournaments</a>
+      <span>›</span>
+      <span>Register</span>
+    </div>
+    <div class="page-ttl">Squad Registration</div>
+    <div class="page-sub">Register your team for BGIS 2026. Fill in all player details and choose your qualifier slot.</div>
+  </div>
+</div>
+
+<!-- REGISTRATION CONTENT -->
+<section style="background:var(--c700)">
+  <div class="si">
+    <div class="reg-grid">
+
+      <!-- LEFT: Info -->
+      <div class="rev">
+        <div class="sec-lbl">BGIS 2026</div>
+        <div class="sec-ttl">How to Register</div>
+        <p style="margin-top:.8rem;color:rgba(255,255,255,.72);line-height:1.8;margin-bottom:1.5rem">India's biggest open-for-all BGMI tournament. Form your squad of 4, pick your qualifier slot, and compete for ₹2 Crore+. Open to all players — no invite needed.</p>
+
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div><h4>Select Your Tournament</h4><p>Choose BGIS 2026 or another active tournament from the dropdown.</p></div></div>
+          <div class="step"><div class="step-n">2</div><div><h4>Enter Captain Details</h4><p>Provide your BGMI UID, in-game name, email and phone number.</p></div></div>
+          <div class="step"><div class="step-n">3</div><div><h4>Add Teammates</h4><p>Enter the BGMI UIDs of your 3 teammates. All must have active BGMI accounts.</p></div></div>
+          <div class="step"><div class="step-n">4</div><div><h4>Choose Match Slot</h4><p>Pick an available qualifier slot. Limited slots per region — book early!</p></div></div>
+        </div>
+
+        <div class="prize-box">
+          <div class="prize-box-lbl">🏆 BGIS 2026 Prize Pool</div>
+          <div class="prize-rows">
+            <div class="p-lbl">🥇 1st Place</div><div class="p-val">₹75,00,000</div>
+            <div class="p-lbl">🥈 2nd Place</div><div class="p-val">₹40,00,000</div>
+            <div class="p-lbl">🥉 3rd Place</div><div class="p-val">₹25,00,000</div>
+            <div class="p-lbl">4th – 8th</div><div class="p-val">₹30,00,000</div>
+            <div class="p-lbl">9th – 16th</div><div class="p-val">₹30,00,000</div>
+          </div>
+        </div>
+
+        <div class="eligibility-box">
+          <div class="elig-ttl">Eligibility Requirements</div>
+          <div class="elig-list">
+            <div class="elig-item">All players must be Indian citizens aged 16+</div>
+            <div class="elig-item">All players must have an active BGMI account</div>
+            <div class="elig-item">Squad must have exactly 4 players (no substitutes)</div>
+            <div class="elig-item">Players must not be banned or restricted by BGMI</div>
+            <div class="elig-item">Each player can only register in one squad per tournament</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="form-card rev d1">
+        <div class="form-ttl">Register Your Squad</div>
+        <div class="form-sub">Fill all details carefully. Incorrect UIDs will result in disqualification.</div>
+
+        <form id="regForm" onsubmit="handleReg(event)" novalidate>
+
+          <div class="fsec">Tournament Selection</div>
+          <div class="fg">
+            <label class="fl">Select Tournament <span>*</span></label>
+            <select class="fs fi" required id="f_tourn" onchange="updateDeadline(this)">
+              <option value="">— Choose Tournament —</option>
+              <option value="BGIS 2026" data-deadline="10 April 2026">BGIS 2026 — Open Registration</option>
+              <option value="Rising Star Program" data-deadline="30 April 2026">Rising Star Program 2026</option>
+              <option value="BMPS 2026" data-deadline="TBA">BMPS 2026 (Coming Soon)</option>
+            </select>
+          </div>
+          <div id="deadlineInfo" style="display:none;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-radius:8px;padding:.7rem 1rem;margin-bottom:1rem;font-size:.82rem">
+            <span style="color:var(--gold);font-weight:600">⏰ Registration Deadline:</span>
+            <span id="deadlineVal" style="color:white;margin-left:.4rem"></span>
+          </div>
+
+          <div class="fsec">Team Details</div>
+          <div class="fg">
+            <label class="fl">Team Name <span>*</span></label>
+            <input class="fi" type="text" placeholder="e.g. Shadow Strikers" required id="f_team">
+          </div>
+          <div class="fr">
+            <div class="fg">
+              <label class="fl">Region <span>*</span></label>
+              <select class="fs fi" required id="f_region">
+                <option value="">Select Region</option>
+                <option>North India</option><option>South India</option>
+                <option>East India</option><option>West India</option>
+                <option>Central India</option><option>Northeast India</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label class="fl">Game Mode</label>
+              <select class="fs fi">
+                <option>Squad (4 Players)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fsec">Captain / Player 1</div>
+          <div class="fg">
+            <label class="fl">Full Name <span>*</span></label>
+            <input class="fi" type="text" placeholder="Captain's Full Name" required id="f_name">
+          </div>
+          <div class="fr">
+            <div class="fg">
+              <label class="fl">BGMI UID <span>*</span></label>
+              <input class="fi" type="text" placeholder="e.g. 5123456789" required id="f_uid" pattern="[0-9]{9,12}" title="9-12 digit numeric UID">
+            </div>
+            <div class="fg">
+              <label class="fl">In-Game Name <span>*</span></label>
+              <input class="fi" type="text" placeholder="Your IGN" required id="f_ign">
+            </div>
+          </div>
+          <div class="fr">
+            <div class="fg">
+              <label class="fl">Email <span>*</span></label>
+              <input class="fi" type="email" placeholder="captain@email.com" required id="f_email">
+            </div>
+            <div class="fg">
+              <label class="fl">Phone <span>*</span></label>
+              <input class="fi" type="tel" placeholder="+91 XXXXX XXXXX" required id="f_phone">
+            </div>
+          </div>
+
+          <div class="fsec">Player 2</div>
+          <div class="fr">
+            <div class="fg"><label class="fl">BGMI UID <span>*</span></label><input class="fi" type="text" placeholder="BGMI UID" required id="f_p2"></div>
+            <div class="fg"><label class="fl">In-Game Name <span>*</span></label><input class="fi" type="text" placeholder="IGN" required></div>
+          </div>
+
+          <div class="fsec">Player 3</div>
+          <div class="fr">
+            <div class="fg"><label class="fl">BGMI UID <span>*</span></label><input class="fi" type="text" placeholder="BGMI UID" required id="f_p3"></div>
+            <div class="fg"><label class="fl">In-Game Name <span>*</span></label><input class="fi" type="text" placeholder="IGN" required></div>
+          </div>
+
+          <div class="fsec">Player 4</div>
+          <div class="fr">
+            <div class="fg"><label class="fl">BGMI UID <span>*</span></label><input class="fi" type="text" placeholder="BGMI UID" required id="f_p4"></div>
+            <div class="fg"><label class="fl">In-Game Name <span>*</span></label><input class="fi" type="text" placeholder="IGN" required></div>
+          </div>
+
+          <div class="fsec">Match Slot <span style="color:var(--gold)">*</span></div>
+          <div style="font-size:.76rem;color:var(--c100);margin-bottom:.55rem">Choose a qualifier slot. 🔴 = Full &nbsp; ⬜ = Available</div>
+          <div class="slot-grid">
+            <div class="slot" onclick="selSlot(this,'Apr 14 · 10AM')">Apr 14<br>10:00 AM</div>
+            <div class="slot" onclick="selSlot(this,'Apr 14 · 2PM')">Apr 14<br>2:00 PM</div>
+            <div class="slot full">Apr 14<br>6:00 PM 🔴</div>
+            <div class="slot" onclick="selSlot(this,'Apr 15 · 10AM')">Apr 15<br>10:00 AM</div>
+            <div class="slot full">Apr 15<br>2:00 PM 🔴</div>
+            <div class="slot" onclick="selSlot(this,'Apr 15 · 6PM')">Apr 15<br>6:00 PM</div>
+            <div class="slot" onclick="selSlot(this,'Apr 16 · 10AM')">Apr 16<br>10:00 AM</div>
+            <div class="slot" onclick="selSlot(this,'Apr 16 · 2PM')">Apr 16<br>2:00 PM</div>
+          </div>
+          <input type="hidden" id="f_slot">
+
+          <div class="terms-row" style="margin-top:1.3rem">
+            <input type="checkbox" id="f_terms" required>
+            <label for="f_terms">I confirm all team members meet eligibility requirements and agree to the <a href="#">Tournament Rules</a> and <a href="#">Code of Conduct</a>. False UID submissions will result in permanent disqualification.</label>
+          </div>
+
+          <button type="submit" class="btn-reg">⚡ Register Squad for BGIS 2026</button>
+          <div style="text-align:center;margin-top:.8rem;font-size:.78rem;color:var(--c400)">Already registered? <a href="#" style="color:var(--gold)" onclick="openLogin()">Login to view your squad →</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS MODAL -->
+<div class="modal" id="successModal">
+  <div class="modal-box">
+    <div class="m-icon">🏆</div>
+    <div class="m-title">Squad Registered!</div>
+    <div class="m-text">Your squad has been successfully registered for <strong id="m_tourn">BGIS 2026</strong>.<br>A confirmation has been sent to your email. Match details will be shared 48 hours before your slot.</div>
+    <div class="m-id" id="m_id">REG-BGIS26-XXXXXX</div>
+    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+      <button class="m-close" onclick="closeSuccess()">Done ✓</button>
+      <button class="m-close" style="background:var(--c600);color:white" onclick="window.location.href='tournaments.html'">View Tournaments</button>
+    </div>
+  </div>
+</div>
+
+<script>
+injectShared('registration');
+
+function updateDeadline(sel) {
+  const opt = sel.options[sel.selectedIndex];
+  const dl = opt.dataset.deadline;
+  const box = document.getElementById('deadlineInfo');
+  if (dl) { document.getElementById('deadlineVal').textContent = dl; box.style.display = 'block'; }
+  else { box.style.display = 'none'; }
+}
+
+function selSlot(el, v) {
+  if (el.classList.contains('full')) return;
+  document.querySelectorAll('.slot').forEach(s => s.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('f_slot').value = v;
+}
+
+function handleReg(e) {
+  e.preventDefault();
+  if (!document.getElementById('f_slot').value) { alert('⚠️ Please select a match slot!'); return; }
+  const t = document.getElementById('f_tourn');
+  const tname = t.options[t.selectedIndex].text || 'BGIS 2026';
+  document.getElementById('m_tourn').textContent = tname.split('—')[0].trim();
+  document.getElementById('m_id').textContent = 'REG-' + Date.now().toString(36).toUpperCase().slice(-8);
+  document.getElementById('successModal').classList.add('show');
+}
+
+function closeSuccess() {
+  document.getElementById('successModal').classList.remove('show');
+  document.getElementById('regForm').reset();
+  document.querySelectorAll('.slot').forEach(s => s.classList.remove('sel'));
+  document.getElementById('f_slot').value = '';
+  document.getElementById('deadlineInfo').style.display = 'none';
+}
+
+document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); }));
+
+const ro = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } }); }, { threshold: .08 });
+document.querySelectorAll('.rev').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

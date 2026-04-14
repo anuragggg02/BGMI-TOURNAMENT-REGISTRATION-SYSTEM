@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Tournaments — KRAFTON ESPORTS BGMI</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.past-hero{background:var(--c900);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}
+.past-hero::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(251,191,36,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(251,191,36,.03) 1px,transparent 1px);background-size:60px 60px}
+
+.past-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.past-card-full{background:#0a0a0a;border:1px solid #272727;border-radius:14px;overflow:hidden;text-decoration:none;display:block;transition:all .3s}
+.past-card-full:hover{border-color:#63542D;box-shadow:0 8px 30px rgba(251,191,36,.12);transform:translateY(-4px)}
+.pcf-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--c600);position:relative}
+.pcf-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+.past-card-full:hover .pcf-img img{transform:scale(1.06)}
+.pcf-type-badge{position:absolute;top:.75rem;left:.75rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .55rem;border-radius:4px;background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.pcf-invite{background:rgba(56,189,248,.12);color:#38bdf8;border-color:rgba(56,189,248,.3)}
+.pcf-open{background:rgba(251,191,36,.12);color:var(--gold);border-color:rgba(251,191,36,.3)}
+.pcf-body{padding:1.1rem 1.3rem 1.3rem}
+.pcf-year{font-size:.72rem;color:var(--c400);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:.3rem}
+.pcf-name{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;color:white;letter-spacing:.04em;margin-bottom:.5rem}
+.pcf-desc{font-size:.82rem;color:var(--c100);line-height:1.6;margin-bottom:1rem}
+.pcf-meta{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;padding:.8rem;background:var(--c800);border-radius:8px;margin-bottom:1rem}
+.pcf-ml{font-size:.7rem;color:var(--c400);text-transform:uppercase;letter-spacing:.08em}
+.pcf-mv{font-size:.85rem;color:white;font-weight:600;margin-top:.15rem}
+.pcf-winner{display:flex;align-items:center;gap:.6rem;padding:.7rem;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-radius:8px;margin-bottom:1rem}
+.pcf-winner-lbl{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pcf-winner-name{font-size:.88rem;font-weight:600;color:white}
+.pcf-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--gold);font-size:.82rem;font-weight:600;text-decoration:none;transition:gap .2s}
+.pcf-link:hover{gap:.65rem}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+
+<!-- HERO -->
+<div class="past-hero">
+  <div class="si" style="position:relative;z-index:1">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Past Tournaments</span>
+    </div>
+    <div class="page-ttl">Past Tournaments</div>
+    <div class="page-sub">Complete history of KRAFTON India Esports tournaments. Champions, prize pools, and results from every event.</div>
+  </div>
+</div>
+
+<!-- FILTER -->
+<section style="background:var(--c800);padding:1.5rem 0">
+  <div class="si">
+    <div class="filter-bar">
+      <button class="f-tab active" onclick="filterYear('all',this)">All Years</button>
+      <button class="f-tab" onclick="filterYear('2025',this)">2025</button>
+      <button class="f-tab" onclick="filterYear('2024',this)">2024</button>
+      <button class="f-tab" onclick="filterYear('2023',this)">2023</button>
+      <button class="f-tab" onclick="filterYear('2022',this)">2022</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAST TOURNAMENT GRID -->
+<section style="background:var(--c700)">
+  <div class="si">
+    <div class="past-grid" id="pastGrid">
+
+      <!-- BMIC 2025 -->
+      <div class="past-card-full rev" data-year="2025">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMIC_2025/thumbnailimage.png" alt="BMIC 2025" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a001a,#001a1a)';this.remove()">
+          <span class="pcf-type-badge pcf-invite">Invite Only</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2025</div>
+          <div class="pcf-name">BMIC 2025</div>
+          <div class="pcf-desc">BGMI Invitational Championship 2025 featuring India's top professional teams competing at LAN.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">31 Oct – 2 Nov 2025</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Invite Only</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹25,00,000</div></div>
+            <div><div class="pcf-ml">Teams</div><div class="pcf-mv">16 Teams</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">GodLike Esports</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- BMSD 2025 -->
+      <div class="past-card-full rev d1" data-year="2025">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMDS_2025/thumbnailimage.png" alt="BMSD 2025" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0800,#0a0000)';this.remove()">
+          <span class="pcf-type-badge pcf-invite">Invite Only</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2025</div>
+          <div class="pcf-name">BMSD 2025</div>
+          <div class="pcf-desc">BGMI Masters Series Duels 2025 — head-to-head format between India's elite professional squads.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">18 Sep – 12 Oct 2025</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Invite Only</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹50,00,000</div></div>
+            <div><div class="pcf-ml">Teams</div><div class="pcf-mv">12 Teams</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">Team Xspark</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- BMPS 2025 -->
+      <div class="past-card-full rev d2" data-year="2025">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMPS_2025/Thumbnail.png" alt="BMPS 2025" onerror="this.parentElement.style.background='linear-gradient(135deg,#001516,#000a14)';this.remove()">
+          <span class="pcf-type-badge pcf-invite">Invite Only</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2025</div>
+          <div class="pcf-name">BMPS 2025</div>
+          <div class="pcf-desc">BGMI Masters Series Pro 2025 — India's premier league featuring the top professional BGMI organizations.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">22 May – 6 Jul 2025</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Invite Only</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹1,00,00,000</div></div>
+            <div><div class="pcf-ml">Teams</div><div class="pcf-mv">16 Teams</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">Global Esports</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- BGIS 2025 -->
+      <div class="past-card-full rev" data-year="2025">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2025/thumbnail-image.png" alt="BGIS 2025" onerror="this.parentElement.style.background='linear-gradient(135deg,#08060e,#160d00)';this.remove()">
+          <span class="pcf-type-badge pcf-open">Open + Invite</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2025</div>
+          <div class="pcf-name">BGIS 2025</div>
+          <div class="pcf-desc">Battlegrounds India Series 2025 — India's biggest open-for-all tournament with over 1.5 million registrations.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">3 Jan – 27 Apr 2025</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Open + Invite</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹2,00,00,000</div></div>
+            <div><div class="pcf-ml">Registrations</div><div class="pcf-mv">1.5M+</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">Team Orangutan</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- BGIS 2024 -->
+      <div class="past-card-full rev d1" data-year="2024">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2024/thumbnail.png" alt="BGIS 2024" onerror="this.parentElement.style.background='linear-gradient(135deg,#08060e,#160d00)';this.remove()">
+          <span class="pcf-type-badge pcf-open">Open + Invite</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2024</div>
+          <div class="pcf-name">BGIS 2024</div>
+          <div class="pcf-desc">Battlegrounds India Series 2024 — the tournament that set new records for BGMI esports participation across India.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">4 Apr – 30 Jun 2024</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Open + Invite</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹1,50,00,000</div></div>
+            <div><div class="pcf-ml">Registrations</div><div class="pcf-mv">1.2M+</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">GodLike Esports</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- BMPS 2023 -->
+      <div class="past-card-full rev d2" data-year="2023">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BMPS_2023/thumbnail.png" alt="BMPS 2023" onerror="this.parentElement.style.background='linear-gradient(135deg,#001516,#000a14)';this.remove()">
+          <span class="pcf-type-badge pcf-invite">Invite Only</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2023</div>
+          <div class="pcf-name">BMPS 2023</div>
+          <div class="pcf-desc">BGMI Masters Series 2023 — featuring India's elite squads in a thrilling end-of-year showdown.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">22 Nov – 17 Dec 2023</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Invite Only</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹75,00,000</div></div>
+            <div><div class="pcf-ml">Teams</div><div class="pcf-mv">16 Teams</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">Blind Esports</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- BGIS 2023 -->
+      <div class="past-card-full rev" data-year="2023">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/BGIS_2023/thumbnail.png" alt="BGIS 2023" onerror="this.parentElement.style.background='linear-gradient(135deg,#08060e,#160d00)';this.remove()">
+          <span class="pcf-type-badge pcf-open">Open + Invite</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2023</div>
+          <div class="pcf-name">BGIS 2023</div>
+          <div class="pcf-desc">The historic Battlegrounds India Series 2023 that reignited BGMI esports after the game's return to India.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">14 Jun – 20 Aug 2023</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Open + Invite</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹1,00,00,000</div></div>
+            <div><div class="pcf-ml">Registrations</div><div class="pcf-mv">800K+</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">Team Xspark</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+      <!-- INKR Series 2022 -->
+      <div class="past-card-full rev d1" data-year="2022">
+        <div class="pcf-img">
+          <img src="https://esports.battlegroundsmobileindia.com/images/static-images/INKR_SERIES/thumbnail.png" alt="INKR Series" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a000f,#000010)';this.remove()">
+          <span class="pcf-type-badge pcf-invite">Invite Only</span>
+        </div>
+        <div class="pcf-body">
+          <div class="pcf-year">2022</div>
+          <div class="pcf-name">INKR Series 2022</div>
+          <div class="pcf-desc">Krafton India's inaugural esports series that laid the foundation for BGMI competitive gaming in India.</div>
+          <div class="pcf-meta">
+            <div><div class="pcf-ml">Dates</div><div class="pcf-mv">Oct – Nov 2022</div></div>
+            <div><div class="pcf-ml">Format</div><div class="pcf-mv">Invite Only</div></div>
+            <div><div class="pcf-ml">Prize Pool</div><div class="pcf-mv" style="color:var(--gold)">₹50,00,000</div></div>
+            <div><div class="pcf-ml">Teams</div><div class="pcf-mv">12 Teams</div></div>
+          </div>
+          <div class="pcf-winner"><span>🏆</span><div><div class="pcf-winner-lbl">Champion</div><div class="pcf-winner-name">Enigma Gaming</div></div></div>
+          <span class="pcf-link">View Results →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+injectShared('past');
+
+function filterYear(year, btn) {
+  document.querySelectorAll('.f-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.past-card-full').forEach(c => {
+    if (year === 'all' || c.dataset.year === year) c.style.display = '';
+    else c.style.display = 'none';
+  });
+}
+
+const ro = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } }); }, { threshold: .08 });
+document.querySelectorAll('.rev').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
